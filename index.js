@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 require("dotenv").config();
 const mongoose = require("mongoose");
 require('./db')
@@ -14,9 +14,9 @@ const app = express();
 
 //middleware
 app.use(cors()); 
-app.use(morgan("short"));
+// app.use(morgan("short"));
 app.use(express.json()); 
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/products-db", products);
 app.use("/user", users);
